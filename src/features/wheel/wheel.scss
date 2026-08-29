@@ -1,36 +1,80 @@
 @use '../../shared/styles/variables' as *;
 
 .wheel {
-  position: relative;
+  @include game-panel;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: $spacing-lg;
-  width: 100%;
+  gap: clamp(0.8rem, 2.5vh, 1.5rem);
+  width: min(100%, 680px);
+  padding: clamp(1rem, 3vh, 1.75rem);
+
+  &__heading {
+    display: grid;
+    gap: 0.2rem;
+  }
+
+  &__kicker {
+    color: $color-cyan;
+    font-size: 0.72rem;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-size: clamp(1.55rem, 5vw, 2.5rem);
+    line-height: 1;
+    text-transform: uppercase;
+  }
 
   &__status {
     font-size: 1.25rem;
   }
 
+  &__stage {
+    position: relative;
+    filter: drop-shadow(0 12px 14px rgba(24, 5, 37, 0.45));
+  }
+
   &__pointer {
     position: absolute;
-    top: 0;
+    top: -0.25rem;
     left: 50%;
-    transform: translate(-50%, -100%);
+    transform: translate(-50%, -30%);
     width: 0;
     height: 0;
-    border-left: 1rem solid transparent;
-    border-right: 1rem solid transparent;
-    border-top: 1.5rem solid $color-white;
-    z-index: 2;
+    border-right: 1.1rem solid transparent;
+    border-top: 1.85rem solid $color-white;
+    border-left: 1.1rem solid transparent;
+    z-index: 3;
+    filter: drop-shadow(0 3px 0 $color-violet-900);
   }
 
   &__disc {
     position: relative;
-    width: min(90vw, 70vh);
-    height: min(90vw, 70vh);
+    width: min(76vw, 48vh, 430px);
+    aspect-ratio: 1;
+    border: 8px solid $color-violet-200;
     border-radius: 50%;
-    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.15), 0 20px 60px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0 5px $color-violet-600, inset 0 0 0 3px rgba(255, 255, 255, 0.28);
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: grid;
+      width: 20%;
+      aspect-ratio: 1;
+      place-items: center;
+      border: 5px solid $color-violet-200;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, $color-magenta, $color-violet-700 70%);
+      box-shadow: 0 4px 0 $color-violet-900, 0 0 16px rgba(236, 92, 255, 0.55);
+      content: 'EICA';
+      font-size: clamp(0.55rem, 2vw, 0.85rem);
+      font-weight: 900;
+      transform: translate(-50%, -50%);
+    }
   }
 
   &__label {
@@ -38,20 +82,55 @@
     inset: 0;
     color: $color-white;
     font-weight: 700;
-    font-size: clamp(0.7rem, 2vw, 1rem);
+    font-size: clamp(0.95rem, 3vw, 1.4rem);
     text-align: center;
     pointer-events: none;
   }
 
   &__label-text {
     display: block;
-    width: 40%;
-    margin: 18% auto 0;
+    width: 42%;
+    margin: 15% auto 0;
+    text-shadow: 0 2px 0 rgba(42, 8, 69, 0.8);
   }
 
   &__result {
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    font-weight: 700;
+    display: grid;
+    gap: 0.65rem;
+    max-width: 90%;
+    padding: 0.75rem 1.25rem;
+    border: 2px solid $color-violet-200;
+    border-radius: $radius-md;
+    background: rgba(42, 8, 69, 0.62);
+    color: $color-yellow;
+    font-size: clamp(1.1rem, 4vw, 1.65rem);
+    font-weight: 900;
     text-align: center;
+  }
+
+  &__career-name {
+    line-height: 1.15;
+  }
+
+  &__result-message {
+    color: $color-white;
+    font-size: 0.8rem;
+    font-weight: 800;
+  }
+}
+
+@media (max-height: 650px) and (orientation: landscape) {
+  .wheel {
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr) auto;
+
+    &__stage {
+      grid-row: 1 / 3;
+      grid-column: 2;
+    }
+
+    &__disc {
+      width: min(52vh, 360px);
+    }
   }
 }

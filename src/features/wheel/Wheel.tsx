@@ -50,30 +50,37 @@ export function Wheel({ onCareerSelected }: WheelProps) {
   return (
     <Layout>
       <div className="wheel">
-        <div className="wheel__pointer" />
-        <motion.div
-          className="wheel__disc"
-          style={{ background: buildConicGradient(careers) }}
-          animate={{ rotate: rotationDeg }}
-          transition={{ duration: 4, ease: [0.15, 0.85, 0.3, 1] }}
-        >
-          {careers.map((career, index) => {
-            const rotation = index * segmentSize + segmentSize / 2;
-            return (
-              <span
-                key={career.id}
-                className="wheel__label"
-                style={{ transform: `rotate(${rotation}deg)` }}
-              >
-                <span className="wheel__label-text">{career.acronym}</span>
-              </span>
-            );
-          })}
-        </motion.div>
+        <div className="wheel__heading">
+          <span className="wheel__kicker">Tu futuro empieza acá</span>
+          <h1 className="wheel__title">Girando destinos</h1>
+        </div>
+        <div className="wheel__stage">
+          <div className="wheel__pointer" />
+          <motion.div
+            className="wheel__disc"
+            style={{ background: buildConicGradient(careers) }}
+            animate={{ rotate: rotationDeg }}
+            transition={{ duration: 4, ease: [0.15, 0.85, 0.3, 1] }}
+          >
+            {careers.map((career, index) => {
+              const rotation = index * segmentSize + segmentSize / 2;
+              return (
+                <span
+                  key={career.id}
+                  className="wheel__label"
+                  style={{ transform: `rotate(${rotation}deg)` }}
+                >
+                  <span className="wheel__label-text">{career.acronym}</span>
+                </span>
+              );
+            })}
+          </motion.div>
+        </div>
         {selectedCareer ? (
-          <p className="wheel__result" role="status">
-            {selectedCareer.name}
-          </p>
+          <div className="wheel__result" role="status">
+            <span className="wheel__career-name">{selectedCareer.name}</span>
+            <span className="wheel__result-message">¡Preparate para responder!</span>
+          </div>
         ) : (
           <Button onClick={spin} disabled={isSpinning}>
             {isSpinning ? 'Girando...' : 'Girar ruleta'}

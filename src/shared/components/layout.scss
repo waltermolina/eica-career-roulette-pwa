@@ -1,4 +1,5 @@
 .layout {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,4 +10,38 @@
   padding: 1.5rem;
   text-align: center;
   overflow: hidden;
+
+  &::before,
+  &::after {
+    position: absolute;
+    width: 11rem;
+    height: 11rem;
+    border: 2px solid rgba(231, 201, 255, 0.14);
+    border-radius: 50%;
+    content: '';
+    pointer-events: none;
+  }
+
+  &::before {
+    top: -5rem;
+    left: -4rem;
+    box-shadow: 0 0 0 28px rgba(196, 155, 240, 0.05), 0 0 0 56px rgba(196, 155, 240, 0.03);
+  }
+
+  &::after {
+    right: -5rem;
+    bottom: -5rem;
+    box-shadow: 0 0 0 28px rgba(85, 230, 255, 0.04), 0 0 0 56px rgba(85, 230, 255, 0.02);
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .layout {
+    padding: 1rem;
+  }
 }

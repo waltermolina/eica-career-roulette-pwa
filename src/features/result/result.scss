@@ -1,14 +1,43 @@
 @use '../../shared/styles/variables' as *;
 
 .result {
+  @include game-panel;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: $spacing-md;
-  max-width: 480px;
+  width: min(100%, 520px);
+  padding: clamp(1.5rem, 5vw, 3rem);
+
+  &__stars {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.35rem;
+    height: 5.5rem;
+
+    span {
+      color: $color-yellow;
+      font-size: clamp(2.8rem, 10vw, 4.5rem);
+      line-height: 1;
+      -webkit-text-stroke: 3px #9a5819;
+      filter: drop-shadow(0 5px 0 $color-violet-900);
+      transform: rotate(-10deg) scale(0.82);
+    }
+
+    span:nth-child(2) {
+      align-self: flex-start;
+      transform: scale(1.08);
+    }
+
+    span:nth-child(3) {
+      transform: rotate(10deg) scale(0.82);
+    }
+  }
 
   &__title {
-    font-size: clamp(2rem, 6vw, 3rem);
+    font-size: clamp(1.8rem, 7vw, 3rem);
+    line-height: 1;
+    text-transform: uppercase;
   }
 
   &__description {
@@ -17,12 +46,19 @@
   }
 
   &--correct &__title {
-    color: $color-success;
+    color: $color-yellow;
   }
 
   &--incorrect &__title,
   &--timeout &__title,
   &--sinDatos &__title {
     color: $color-warning;
+  }
+
+  &--incorrect &__stars span,
+  &--timeout &__stars span,
+  &--sinDatos &__stars span {
+    color: $color-violet-300;
+    -webkit-text-stroke-color: $color-violet-900;
   }
 }

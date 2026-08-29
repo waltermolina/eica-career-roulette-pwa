@@ -50,6 +50,7 @@ export function Question({ careerId, onFinished }: QuestionProps) {
   return (
     <Layout>
       <div className="question">
+        <span className="question__round">Desafío EICA</span>
         <div className="question__progress-track">
           <div
             className="question__progress-fill"

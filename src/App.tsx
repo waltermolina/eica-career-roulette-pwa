@@ -47,8 +47,14 @@ export function App() {
   return (
     <Layout>
       <div className="home">
-        <img src="/icons/logo-eica.svg" alt="Logo EICA" className="home__logo" />
-        <h1 className="home__title">Ruleta de carreras EICA</h1>
+        <span className="home__eyebrow">Descubrí tu próxima aventura</span>
+        <div className="home__logo-wrap">
+          <span className="home__brand">EICA</span>
+        </div>
+        <div>
+          <h1 className="home__title">Ruleta de carreras</h1>
+          <p className="home__subtitle">Girás, respondés y conocés una carrera de EICA</p>
+        </div>
         <Button onClick={goToWheel}>Girar ruleta</Button>
       </div>
     </Layout>

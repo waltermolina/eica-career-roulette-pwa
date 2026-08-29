@@ -39,6 +39,11 @@ export function Result({ outcome, onRestart }: ResultProps) {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4 }}
       >
+        <div className="result__stars" aria-hidden="true">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
         <h1 className="result__title">{title}</h1>
         <p className="result__description">{description}</p>
         <Button onClick={onRestart}>Volver al inicio</Button>

@@ -5,12 +5,17 @@ $color-violet-600: #6023a3;
 $color-violet-500: #7b2fc9;
 $color-violet-400: #9c5ee0;
 $color-violet-300: #c49bf0;
+$color-violet-200: #e7c9ff;
+$color-magenta: #ec5cff;
+$color-cyan: #55e6ff;
+$color-yellow: #ffd84d;
+$color-ink: #32123f;
 $color-white: #ffffff;
 $color-success: #2ecc71;
 $color-error: #e74c3c;
 $color-warning: #f1c40f;
 
-$font-family-base: 'Poppins', 'Segoe UI', sans-serif;
+$font-family-base: 'Trebuchet MS', 'Arial Rounded MT Bold', sans-serif;
 
 $radius-sm: 8px;
 $radius-md: 16px;
@@ -23,3 +28,14 @@ $spacing-lg: 2.5rem;
 
 $transition-fast: 0.2s ease;
 $transition-normal: 0.4s ease;
+
+@mixin game-panel {
+	border: 4px solid $color-violet-300;
+	border-radius: $radius-lg;
+	background: linear-gradient(155deg, rgba(104, 45, 137, 0.96), rgba(49, 18, 67, 0.98));
+	box-shadow:
+		inset 0 0 0 4px rgba(255, 255, 255, 0.1),
+		inset 0 -12px 24px rgba(31, 8, 48, 0.38),
+		0 8px 0 $color-violet-900,
+		0 22px 45px rgba(24, 5, 37, 0.45);
+}

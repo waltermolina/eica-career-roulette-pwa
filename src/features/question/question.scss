@@ -1,12 +1,25 @@
 @use '../../shared/styles/variables' as *;
 
 .question {
+  @include game-panel;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: $spacing-md;
   width: 100%;
   max-width: 640px;
+  padding: clamp(1.25rem, 4vw, 2.25rem);
+
+  &__round {
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    background: $color-yellow;
+    color: $color-ink;
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    box-shadow: 0 4px 0 #b47b13;
+  }
 
   &__status {
     font-size: 1.25rem;
@@ -14,9 +27,10 @@
 
   &__progress-track {
     width: 100%;
-    height: 6px;
+    height: 12px;
+    border: 2px solid $color-violet-300;
     border-radius: $radius-sm;
-    background: rgba(255, 255, 255, 0.2);
+    background: $color-violet-900;
     overflow: hidden;
   }
 
@@ -24,13 +38,13 @@
     height: 100%;
     width: 100%;
     transform-origin: left;
-    background: $color-white;
+    background: linear-gradient(90deg, $color-cyan, $color-magenta);
     transition: transform 0.1s linear;
   }
 
   &__text {
     font-size: clamp(1.25rem, 4vw, 1.8rem);
-    line-height: 1.4;
+    line-height: 1.3;
   }
 
   &__options {
@@ -42,13 +56,20 @@
 
   &__option {
     padding: 1rem;
+    border: 3px solid $color-violet-900;
     border-radius: $radius-md;
-    background: rgba(255, 255, 255, 0.1);
-    color: $color-white;
+    background: linear-gradient(180deg, $color-white, #d9dce7);
+    color: $color-ink;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 800;
     text-align: left;
-    transition: background $transition-fast, transform $transition-fast;
+    box-shadow: 0 4px 0 $color-violet-900;
+    transition: background $transition-fast, transform $transition-fast, box-shadow $transition-fast;
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 $color-violet-900;
+    }
 
     &:disabled {
       cursor: not-allowed;
@@ -61,6 +82,7 @@
 
     &--incorrect {
       background: $color-error;
+      color: $color-white;
     }
   }
 }

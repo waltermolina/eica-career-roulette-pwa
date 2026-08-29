@@ -15,7 +15,11 @@ body,
 
 body {
   font-family: $font-family-base;
-  background: linear-gradient(160deg, $color-violet-900 0%, $color-violet-700 100%);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(236, 92, 255, 0.28) 0 2px, transparent 3px),
+    radial-gradient(circle at 82% 28%, rgba(85, 230, 255, 0.22) 0 3px, transparent 4px),
+    linear-gradient(145deg, #1f0a32 0%, $color-violet-800 55%, #26083f 100%);
+  background-size: 76px 76px, 110px 110px, auto;
   color: $color-white;
   overflow: hidden;
   -webkit-tap-highlight-color: transparent;
@@ -34,7 +38,9 @@ h1,
 h2,
 h3 {
   color: $color-white;
-  font-weight: 700;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-shadow: 0 3px 0 $color-violet-900;
 }
 
 button {
