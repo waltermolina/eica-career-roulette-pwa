@@ -1,0 +1,51 @@
+@use '../../shared/styles/variables' as *;
+
+.wheel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-lg;
+  width: 100%;
+
+  &__status {
+    font-size: 1.25rem;
+  }
+
+  &__pointer {
+    position: absolute;
+    top: calc(50% - min(45vw, 45vh) - 1.5rem);
+    width: 0;
+    height: 0;
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+    border-top: 1.5rem solid $color-white;
+    z-index: 2;
+  }
+
+  &__disc {
+    position: relative;
+    width: min(90vw, 70vh);
+    height: min(90vw, 70vh);
+    border-radius: 50%;
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.15), 0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+
+  &__label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    color: $color-white;
+    font-weight: 700;
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    text-align: center;
+    width: 40%;
+    margin-left: -20%;
+  }
+
+  &__result {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+    text-align: center;
+  }
+}
