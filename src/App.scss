@@ -1,0 +1,17 @@
+@use './shared/styles/variables' as *;
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-lg;
+
+  &__logo {
+    width: min(50vw, 220px);
+    height: auto;
+  }
+
+  &__title {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+}
