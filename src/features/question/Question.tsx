@@ -6,7 +6,7 @@ import './question.scss';
 
 const QUESTION_DURATION_MS = 30000;
 
-export type QuestionOutcome = 'correct' | 'incorrect' | 'timeout';
+export type QuestionOutcome = 'correct' | 'incorrect' | 'timeout' | 'sinDatos';
 
 interface QuestionProps {
   careerId: string;
@@ -15,17 +15,24 @@ interface QuestionProps {
 
 export function Question({ careerId, onFinished }: QuestionProps) {
   const { question, isLoading, selectedIndex, selectOption } = useQuestion(careerId);
-  const { progress } = useTimer(QUESTION_DURATION_MS, () => {
+  const { progress, reset } = useTimer(QUESTION_DURATION_MS, () => {
     if (selectedIndex === null) {
       onFinished('timeout');
     }
   });
 
   useEffect(() => {
-    if (!isLoading && !question) {
-      onFinished('timeout');
+    if (isLoading) {
+      return;
     }
-  }, [isLoading, question, onFinished]);
+
+    if (!question) {
+      onFinished('sinDatos');
+      return;
+    }
+
+    reset();
+  }, [isLoading, question, onFinished, reset]);
 
   const handleSelect = (index: number) => {
     const isCorrect = selectOption(index);

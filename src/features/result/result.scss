@@ -21,7 +21,8 @@
   }
 
   &--incorrect &__title,
-  &--timeout &__title {
+  &--timeout &__title,
+  &--sinDatos &__title {
     color: $color-warning;
   }
 }

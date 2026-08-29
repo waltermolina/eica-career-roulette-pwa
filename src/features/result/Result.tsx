@@ -22,6 +22,10 @@ const MESSAGES: Record<QuestionOutcome, { title: string; description: string }> 
     title: 'Tiempo agotado',
     description: 'El tiempo para responder terminó.',
   },
+  sinDatos: {
+    title: 'Sin pregunta disponible',
+    description: 'No hay una pregunta cargada para la carrera seleccionada.',
+  },
 };
 
 export function Result({ outcome, onRestart }: ResultProps) {
