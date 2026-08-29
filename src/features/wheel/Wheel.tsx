@@ -63,9 +63,9 @@ export function Wheel({ onCareerSelected }: WheelProps) {
               <span
                 key={career.id}
                 className="wheel__label"
-                style={{ transform: `rotate(${rotation}deg) translateY(-38%)` }}
+                style={{ transform: `rotate(${rotation}deg)` }}
               >
-                {career.name}
+                <span className="wheel__label-text">{career.acronym}</span>
               </span>
             );
           })}

@@ -2,12 +2,12 @@ import type { Career, Question } from './types';
 
 // MOCK TEMPORAL: reemplazar por los datos reales de la colección "careers" en Firestore.
 export const MOCK_CAREERS: Career[] = [
-  { id: 'career-1', name: 'Carrera EICA 1 (TODO: reemplazar)', weight: 1, color: '#6023a3' },
-  { id: 'career-2', name: 'Carrera EICA 2 (TODO: reemplazar)', weight: 1, color: '#7b2fc9' },
-  { id: 'career-3', name: 'Carrera EICA 3 (TODO: reemplazar)', weight: 1, color: '#9c5ee0' },
-  { id: 'career-4', name: 'Carrera EICA 4 (TODO: reemplazar)', weight: 1, color: '#4b1683' },
-  { id: 'career-5', name: 'Carrera EICA 5 (TODO: reemplazar)', weight: 1, color: '#c49bf0' },
-  { id: 'career-6', name: 'Carrera EICA 6 (TODO: reemplazar)', weight: 1, color: '#3c0d63' },
+  { id: 'career-1', name: 'Carrera EICA 1 (TODO: reemplazar)', acronym: 'EICA 1', weight: 1, color: '#6023a3' },
+  { id: 'career-2', name: 'Carrera EICA 2 (TODO: reemplazar)', acronym: 'EICA 2', weight: 1, color: '#7b2fc9' },
+  { id: 'career-3', name: 'Carrera EICA 3 (TODO: reemplazar)', acronym: 'EICA 3', weight: 1, color: '#9c5ee0' },
+  { id: 'career-4', name: 'Carrera EICA 4 (TODO: reemplazar)', acronym: 'EICA 4', weight: 1, color: '#4b1683' },
+  { id: 'career-5', name: 'Carrera EICA 5 (TODO: reemplazar)', acronym: 'EICA 5', weight: 1, color: '#c49bf0' },
+  { id: 'career-6', name: 'Carrera EICA 6 (TODO: reemplazar)', acronym: 'EICA 6', weight: 1, color: '#3c0d63' },
 ];
 
 // MOCK TEMPORAL: reemplazar por los datos reales de la colección "questions" en Firestore.

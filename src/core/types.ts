@@ -1,6 +1,7 @@
 export interface Career {
   id: string;
   name: string;
+  acronym: string;
   weight: number;
   color?: string;
 }

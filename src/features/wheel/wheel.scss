@@ -1,6 +1,7 @@
 @use '../../shared/styles/variables' as *;
 
 .wheel {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +14,9 @@
 
   &__pointer {
     position: absolute;
-    top: calc(50% - min(45vw, 45vh) - 1.5rem);
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
     width: 0;
     height: 0;
     border-left: 1rem solid transparent;
@@ -32,15 +35,18 @@
 
   &__label {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform-origin: center;
+    inset: 0;
     color: $color-white;
     font-weight: 700;
     font-size: clamp(0.7rem, 2vw, 1rem);
     text-align: center;
+    pointer-events: none;
+  }
+
+  &__label-text {
+    display: block;
     width: 40%;
-    margin-left: -20%;
+    margin: 18% auto 0;
   }
 
   &__result {
